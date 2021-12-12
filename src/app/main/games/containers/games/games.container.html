@@ -1,0 +1,10 @@
+<!--<app-back-button></app-back-button>-->
+<app-menu (changeId)="changeGameId($event)" [menuItems]="menuItems"></app-menu>
+
+<div [ngSwitch]="gameId">
+  <app-tik-tak-toe *ngSwitchCase="1"></app-tik-tak-toe>
+  <app-find-the-same *ngSwitchCase="2"></app-find-the-same>
+  <app-snake *ngSwitchCase="3"></app-snake>
+  <app-bubbles *ngSwitchCase="4"></app-bubbles>
+  <app-sudoku *ngSwitchCase="5"></app-sudoku>
+</div>

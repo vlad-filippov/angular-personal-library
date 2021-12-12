@@ -1,0 +1,7 @@
+<!--<app-back-button></app-back-button>-->
+<app-menu (changeId)="changeVersionId($event)" [menuItems]="menuItems"></app-menu>
+
+<div [ngSwitch]="versionId">
+  <app-admin1 *ngSwitchCase="1"></app-admin1>
+  <app-landing1 *ngSwitchCase="2"></app-landing1>
+</div>

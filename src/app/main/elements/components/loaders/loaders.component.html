@@ -1,0 +1,53 @@
+<div class="loaders">
+  <h1>---Loaders...---</h1>
+  <h1>---Loaders...---</h1>
+</div>
+
+<section>
+  <div class="content">
+    <div class="plane">
+      <span *ngFor="let number of aroundElements" [style]="'--i:' + number"></span>
+      <div class="rocket"></div>
+      <img [src]="'earth.png' | assets" alt="">
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="snake">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="shadow-cols">
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="pencil">
+      <img [src]="'pencil.png' | assets" alt="">
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="wave">
+      <h2>Loading</h2>
+      <h2>Loading</h2>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="colors">
+      <div *ngFor="let number of aroundElements" class="lines" [style]="'--i:' + number"></div>
+      <h3>Loading</h3>
+    </div>
+  </div>
+</section>

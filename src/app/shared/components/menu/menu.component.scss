@@ -1,0 +1,86 @@
+.menu {
+  position: fixed;
+  background: #232323;
+  color: white;
+  height: 100vh;
+  width: 100%;
+  max-width: 300px;
+  left: -300px;
+  transition: all 0.3s;
+  z-index: 100;
+  display: flex;
+  box-shadow: 0 0 20px 1px #00000069;
+  flex-direction: column;
+
+  .back-button {
+    position: absolute;
+    background: #5a5a5a;
+    color: white;
+    border: none;
+    top: 10px;
+    border-radius: 30px;
+    font-size: 20px;
+    left: 100px;
+    white-space: nowrap;
+    width: 40px;
+    overflow: hidden;
+    height: 40px;
+    padding: 5px 10px;
+    transition: all 0.3s;
+
+    &:hover {
+      width: 90px;
+      background: black;
+    }
+
+    span {
+      margin-left: 10px;
+    }
+  }
+
+
+  .toggle-menu {
+    position: absolute;
+    bottom: 10px;
+    border-radius: 0 30px 30px 0;
+    right: -60px;
+    background: #232323;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 5px 15px;
+    opacity: 0.5;
+    transition: all 0.3s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  button {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    color: white;
+    border-bottom: 1px solid gray;
+    padding: 10px 20px;
+    transition: all 0.3s;
+
+    &:hover {
+      background: #3a3a3a;
+    }
+
+    &:last-of-type {
+      margin-top: auto;
+    }
+  }
+
+  .current,
+  .current:hover {
+    background: #5a5a5a;
+  }
+}
+
+.open {
+  left: 0;
+}

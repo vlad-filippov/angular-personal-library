@@ -1,0 +1,34 @@
+<div class="main-page" [class.pointer-events-none]="isPending">
+  <div>
+    <a (click)="selectPath('elements')" [class.selected-element]="showSelectedElement === 'elements'">
+      <div class="gradient"></div>
+      <span>Elements</span>
+    </a>
+  </div>
+
+  <div>
+    <a (click)="selectPath('tricks')" [class.selected-element]="showSelectedElement === 'tricks'">
+      <div class="gradient"></div>
+      <span>Tricks</span>
+    </a>
+  </div>
+
+  <div>
+    <a (click)="selectPath('ui')" [class.selected-element]="showSelectedElement === 'ui'">
+      <div class="gradient"></div>
+      <span>UI</span>
+    </a>
+  </div>
+
+  <div>
+    <a (click)="selectPath('games')" [class.selected-element]="showSelectedElement === 'games'">
+      <div class="gradient"></div>
+      <span>Games</span>
+    </a>
+  </div>
+</div>
+
+<div class="signature" [class.pointer-events-none]="isPending">
+  <span>VLAD </span>
+  <span>FILIPPOV</span>
+</div>

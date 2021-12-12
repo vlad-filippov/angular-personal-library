@@ -1,0 +1,6 @@
+<!--<app-back-button></app-back-button>-->
+<app-menu (changeId)="changeLandingId($event)" [menuItems]="menuItems"></app-menu>
+
+<div [ngSwitch]="itemId">
+  <app-loaders *ngSwitchCase="1"></app-loaders>
+</div>

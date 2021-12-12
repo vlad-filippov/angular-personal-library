@@ -1,0 +1,13 @@
+<div class="clock-bg">
+  <div class="clock">
+    <div class="clock-numbers">
+      <div *ngFor="let hour of hours" class="hour-number" [style]="'--i:' + hour">
+        <span>{{hour}}</span>
+      </div>
+    </div>
+
+    <div class="hour-line"></div>
+    <div class="minute-line"></div>
+    <div class="second-line"></div>
+  </div>
+</div>

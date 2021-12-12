@@ -1,0 +1,59 @@
+.sky {
+  height: 50vh;
+  min-height: 500px;
+  background-image: linear-gradient(180deg, #53539e, #e7eaff);
+  position: relative;
+
+  .sun {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+
+    .bxs-wink-smile {
+      color: #fff703;
+      font-size: 100px;
+    }
+
+    .sun-circles {
+      animation: rotate 10s linear infinite;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+
+      span {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        transform: rotate(calc(36deg * var(--i)));
+      }
+
+      span:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 15px;
+        height: 15px;
+        background: #fff703;
+        border-radius: 50%;
+      }
+    }
+
+
+  }
+
+
+}
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

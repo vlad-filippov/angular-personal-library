@@ -1,0 +1,37 @@
+.toggle-area {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+
+  p {
+    font-size: 15px;
+    margin: 0 10px 0 0;
+  }
+
+  .toggler {
+    background: #ebebeb;
+    width: 60px;
+    height: 30px;
+    border-radius: 30px;
+    border: 1px solid #bababa;
+    position: relative;
+    transition: all 0.3s;
+
+    span {
+      position: absolute;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #ff4343;
+      margin-left: 2px;
+      top: 1px;
+      transition: all 0.3s;
+    }
+
+    .active {
+      left: 50%;
+      background: #42ff42;
+      transition: all 0.3s;
+    }
+  }
+}

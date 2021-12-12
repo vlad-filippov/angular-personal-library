@@ -1,0 +1,233 @@
+@mixin selectedElement() {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  z-index: 10;
+
+  .gradient {
+    filter: brightness(1);
+  }
+}
+
+.main-page {
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: repeat(2, 1fr);
+  background: black;
+
+  div {
+    &:nth-child(1) {
+      .selected-element {
+        @include selectedElement;
+
+        transform: scale(2) translate(25%, 25%);
+      }
+
+      a {
+        animation: slideRight 1s ease-in-out;
+
+        .gradient {
+          background: linear-gradient(45deg, #005bff, #00b8ff);
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      .selected-element {
+        @include selectedElement;
+
+        transform: scale(2) translate(-25%, 25%);
+      }
+
+      a {
+        animation: slideBottom 1.5s ease-in-out;
+
+        .gradient {
+          background: linear-gradient(45deg, #cd0000, #ff8686);
+        }
+      }
+    }
+
+    &:nth-child(3) {
+      .selected-element {
+        @include selectedElement;
+
+        transform: scale(2) translate(25%, -25%);
+      }
+
+      a {
+        animation: slideTop 2s ease-in-out;
+
+        .gradient {
+          background: linear-gradient(45deg, #00cd14, #16691b);
+        }
+      }
+    }
+
+    &:nth-child(4) {
+      .selected-element {
+        @include selectedElement;
+
+        transform: scale(2) translate(-25%, -25%);
+      }
+
+      a {
+        animation: slideLeft 1.5s ease-in-out;
+
+        .gradient {
+          background: linear-gradient(45deg, #cdbc00, #7e7312);
+        }
+      }
+    }
+
+    &:hover a .gradient {
+      filter: brightness(1);
+    }
+
+    &:hover a {
+      opacity: 1;
+      text-shadow: 0 5px 30px #0000006e;
+      letter-spacing: 5px;
+      font-size: 4.5vw;
+    }
+  }
+
+  a {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 4vw;
+    transition: all 0.5s;
+    cursor: pointer;
+    font-weight: bold;
+    overflow: hidden;
+    position: relative;
+    opacity: 0.9;
+
+    span {
+      z-index: 10;
+    }
+
+    .gradient {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      left: -50%;
+      top: -50%;
+      transition: all 0.5s;
+      filter: brightness(0.7);
+    }
+  }
+}
+
+.signature {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 310px;
+  height: 80px;
+  color: white;
+  font-size: 100px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.5;
+  animation: fadeScale 1s ease-in-out;
+
+  &:hover {
+    font-size: 40px;
+    opacity: 1;
+
+    span:first-of-type {
+      text-decoration: underline;
+      width: 110px !important;
+    }
+
+    span:last-of-type {
+      text-decoration: underline;
+      width: 200px !important;
+    }
+  }
+
+  span {
+    cursor: default;
+    transition: all 0.5s;
+    overflow: hidden;
+  }
+
+  span:first-of-type {
+    animation: autoWidth 1s ease-in-out;
+    width: 65px;
+    padding-right: 10px;
+  }
+
+  span:last-of-type {
+    width: 50px;
+    animation: autoWidth 1s ease-in-out;
+  }
+}
+
+.pointer-events-none {
+  pointer-events: none;
+}
+
+@keyframes fideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes scaleItem {
+  0% {
+    opacity: 1;
+    z-index: 10;
+    transform: scale(2);
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideTop{
+  0% {
+    transform: translateY(100%);
+  }
+  60% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  40% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slideBottom {
+  0% {
+    transform: translateY(-100%);
+  }
+  20% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes fadeScale {
+  0% {
+    transform: scale(0);
+  }
+}

@@ -1,0 +1,14 @@
+<!--<app-back-button></app-back-button>-->
+<app-menu (changeId)="changeTrickId($event)" [menuItems]="menuItems"></app-menu>
+
+<div [ngSwitch]="trickId">
+  <app-city *ngSwitchCase="1"></app-city>
+  <app-before-after *ngSwitchCase="2"></app-before-after>
+  <app-flashlight *ngSwitchCase="3"></app-flashlight>
+  <app-six-blocks *ngSwitchCase="4"></app-six-blocks>
+  <app-weekend-circles *ngSwitchCase="5"></app-weekend-circles>
+  <app-clock *ngSwitchCase="6"></app-clock>
+  <app-krosovok-card *ngSwitchCase="7"></app-krosovok-card>
+  <app-coin-rotate *ngSwitchCase="8"></app-coin-rotate>
+  <app-iphone-disasembly *ngSwitchCase="9"></app-iphone-disasembly>
+</div>

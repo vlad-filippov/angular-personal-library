@@ -1,0 +1,88 @@
+<div [class.night-mode]="toggleNightMode">
+  <header>
+    <div class="logo">
+      <h1>Logotype</h1>
+    </div>
+
+    <div class="menu">
+      <div class="moved-background" [ngStyle]="{'left': selectedMenuItem * 20 + '%'}"></div>
+
+      <button *ngFor="let item of mochDataService.menuItems"
+              [class.active]="item.id === selectedMenuItem"
+              (click)="selectedMenuItem = item.id">
+        {{item.label}}
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <aside>
+      <button *ngFor="let item of mochDataService.menuItems"
+              [class.active]="item.id === selectedSidebarItem"
+              (click)="selectedSidebarItem = item.id">
+        {{item.label}}
+      </button>
+
+      <app-toggler (click)="toggleNightMode = !toggleNightMode">Night Mode</app-toggler>
+    </aside>
+
+    <div class="body" [ngSwitch]="selectedSidebarItem">
+      <div *ngSwitchCase="0" class="chart-block">
+        <div style="display: block;">
+          <canvas baseChart
+                  [datasets]="barChartData"
+                  [labels]="barChartLabels"
+                  [options]="barChartOptions"
+                  [plugins]="barChartPlugins"
+                  [legend]="barChartLegend"
+                  [type]="barChartType">
+          </canvas>
+        </div>
+      </div>
+      <div *ngSwitchCase="1" class="chart-block">
+        2
+        <div style="display: block;">
+          <canvas baseChart
+                  [data]="polarAreaChartData"
+                  [labels]="polarAreaChartLabels"
+                  [legend]="polarAreaLegend"
+                  [type]="polarAreaChartType">
+          </canvas>
+        </div>
+
+      </div>
+      <div *ngSwitchCase="2" class="chart-block">
+        <div style="display: block;">
+          <canvas baseChart
+                  [datasets]="radarChartData"
+                  [options]="radarChartOptions"
+                  [labels]="radarChartLabels"
+                  [type]="radarChartType">
+          </canvas>
+        </div>
+      </div>
+      <div *ngSwitchCase="3" class="chart-block">
+        <div style="display: block;">
+          <canvas baseChart width="400" height="400"
+                  [datasets]="lineChartData"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [legend]="lineChartLegend"
+                  [type]="lineChartType"
+                  [plugins]="lineChartPlugins">
+          </canvas>
+        </div>
+      </div>
+      <div *ngSwitchCase="4" class="chart-block">
+        <div style="display: block;">
+          <canvas baseChart
+                  [datasets]="bubbleChartData"
+                  [options]="bubbleChartOptions"
+                  [legend]="bubbleChartLegend"
+                  [type]="bubbleChartType">
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

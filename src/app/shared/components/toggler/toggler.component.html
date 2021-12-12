@@ -1,0 +1,7 @@
+<div class="toggle-area" (click)="toggler = !toggler; toggle.emit(toggler)">
+  <p><ng-content></ng-content></p>
+
+  <div class="toggler">
+    <span [class.active]="toggler"></span>
+  </div>
+</div>

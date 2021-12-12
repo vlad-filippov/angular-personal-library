@@ -1,0 +1,122 @@
+header {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  padding: 0 30px;
+  justify-content: space-between;
+  transition: all 0.5s;
+
+  .menu {
+    width: 500px;
+    height: 30px;
+    position: relative;
+    display: flex;
+
+    .moved-background {
+      background: blue;
+      width: 100px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-radius: 20px;
+      height: 100%;
+      transition: all 0.3s;
+    }
+
+    button {
+      width: 100%;
+      max-width: 100px;
+      background: none;
+      border: none;
+      position: relative;
+      z-index: 2;
+      transition: all 0.3s;
+    }
+
+    .active {
+      color: white;
+    }
+  }
+}
+
+main {
+  display: flex;
+  transition: all 0.5s;
+  height: calc(100vh - 70px);
+
+  aside {
+    height: 100%;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+
+    button {
+      width: 100%;
+      height: 50px;
+      background: none;
+      border: none;
+      transition: all 0.3s;
+      //border-bottom: 1px solid gray;
+      //transition: all 0.3s;
+      //
+      //&:first-of-type {
+      //  border-top: 1px solid gray;
+      //}
+    }
+
+    .active {
+      box-shadow: inset 20px 0 20px 0 #00000026;
+      padding-left: 20px;
+      position: relative;
+      width: 110%;
+      background: #f7f7f7;
+
+      &:before {
+        content: "";
+        position: absolute;
+        background: #f7f7f7;
+        box-shadow: 0 0 20px 0 #f7f7f7;
+        width: 30px;
+        height: 50px;
+        right: -30px;
+        top: 0;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        background: red;
+      }
+    }
+
+    app-toggler {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+  }
+
+  .body {
+    padding: 30px;
+    width: 100%;
+    background: #c8c8c826;
+    border-radius: 30px 0 0 0;
+    box-shadow: inset 20px 20px 20px 0 #00000026;
+
+    .chart-block {
+      width: 500px;
+      height: 300px;
+    }
+  }
+}
+
+// ------------- NIGHT MODE ------------
+.night-mode {
+  header,
+  main {
+    background: black;
+    color: white;
+  }
+}
