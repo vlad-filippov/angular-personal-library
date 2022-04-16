@@ -1,16 +1,19 @@
 import { Component } from '@angular/core';
 import { MochDataService } from '../../services/moch-data.service';
 import { ChartOptions, ChartType } from 'chart.js';
+import { CommonAnimations } from '../../../../shared/animations/common.animations';
 
 @Component({
   selector: 'app-admin1',
   templateUrl: './admin1.component.html',
-  styleUrls: ['./admin1.component.scss']
+  styleUrls: ['./admin1.component.scss'],
+  animations: [CommonAnimations.slideActiveBackground],
 })
 export class Admin1Component {
   public selectedMenuItem: number = 0;
   public selectedSidebarItem: number = 0;
   public toggleNightMode: boolean;
+  public selectedChartBarDataId: number = 1;
 
   // Bar Chart ---------------
   public barChartOptions: ChartOptions = {
@@ -23,7 +26,7 @@ export class Admin1Component {
 
   public barChartData: any[] = [
     { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' }
+    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' },
   ];
 
   // Pie  -----------
@@ -108,5 +111,39 @@ export class Admin1Component {
 
   public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
     console.log(event, active);
+  }
+
+  public changeBerChartData(id: number): void {
+    this.selectedChartBarDataId = id;
+
+    switch (id) {
+      case 1:
+        this.barChartData = [
+          { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
+          { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' },
+        ];
+        break;
+
+      case 2:
+        this.barChartData = [
+          { data: [70, 69, 10, 21, 36, 75, 10], label: 'Series A' },
+          { data: [18, 58, 20, 89, 46, 77, 30], label: 'Series B' },
+        ];
+        break;
+
+      case 3:
+        this.barChartData = [
+          { data: [5, 29, 20, 61, 16, 25, 70], label: 'Series A' },
+          { data: [68, 8, 10, 9, 66, 27, 10], label: 'Series B' },
+        ];
+        break;
+
+      case 4:
+        this.barChartData = [
+          { data: [10, 99, 20, 51, 16, 25, 60], label: 'Series A' },
+          { data: [18, 28, 20, 19, 26, 17, 10], label: 'Series B' },
+        ];
+        break;
+    }
   }
 }

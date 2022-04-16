@@ -28,7 +28,9 @@
   </div>
 </div>
 
-<div class="signature" [class.pointer-events-none]="isPending">
+<div class="signature" [class.pointer-events-none]="isPending" (click)="isAboutShowed = !isAboutShowed">
   <span>VLAD </span>
   <span>FILIPPOV</span>
 </div>
+
+<app-about *ngIf="isAboutShowed" @fadeIn (close)="isAboutShowed = false"></app-about>

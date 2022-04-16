@@ -1,1 +1,15 @@
-<p>about works!</p>
+<div class="about-back" (click)="close.emit()">
+</div>
+<div *ngFor="let abstract of absctacts" [class]="abstract.class"></div>
+
+
+<div class="about-block">
+  <div class="about-name">
+    <div class="socials">
+      <a href="https://www.facebook.com/vladislavgrifindor" target="_blank"><i class='bx bxl-facebook'></i></a>
+      <a href="https://vk.com/vladislavgrifindor" target="_blank"><i class='bx bxl-vk'></i></a>
+      <a href="https://www.instagram.com/wladfilippov" target="_blank"><i class='bx bxl-instagram-alt'></i></a>
+    </div>
+    <h1>Vlad Filippov</h1>
+  </div>
+</div>

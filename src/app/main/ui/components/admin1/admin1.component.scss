@@ -5,15 +5,16 @@ header {
   padding: 0 30px;
   justify-content: space-between;
   transition: all 0.5s;
+  background: white;
 
   .menu {
     width: 500px;
-    height: 30px;
+    height: 40px;
     position: relative;
     display: flex;
 
     .moved-background {
-      background: blue;
+      background: #565656;
       width: 100px;
       position: absolute;
       left: 0;
@@ -21,6 +22,7 @@ header {
       border-radius: 20px;
       height: 100%;
       transition: all 0.3s;
+      box-shadow: 0 0 10px 0 #565656;
     }
 
     button {
@@ -42,53 +44,82 @@ header {
 main {
   display: flex;
   transition: all 0.5s;
+  background: white;
   height: calc(100vh - 70px);
 
   aside {
     height: 100%;
     min-width: 300px;
     display: flex;
+    //overflow: hidden;
     flex-direction: column;
     justify-content: center;
     position: relative;
 
-    button {
-      width: 100%;
-      height: 50px;
-      background: none;
-      border: none;
-      transition: all 0.3s;
-      //border-bottom: 1px solid gray;
+    .sidebar-button {
+      height: 70px;
       //transition: all 0.3s;
-      //
-      //&:first-of-type {
-      //  border-top: 1px solid gray;
-      //}
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.5s;
+
+      .top-corner,
+      .bottom-corner {
+        display: none;
+      }
+
+      .label {
+        z-index: 10;
+      }
     }
 
     .active {
-      box-shadow: inset 20px 0 20px 0 #00000026;
-      padding-left: 20px;
-      position: relative;
-      width: 110%;
-      background: #f7f7f7;
+      margin-left: 30px;
+    }
 
-      &:before {
-        content: "";
+    .active-background {
+      content: '';
+      position: absolute;
+      height: 100%;
+      border-radius: 30px 0 0 30px;
+      width: 100%;
+      background: #ededed;
+      box-shadow: inset 0 0 30px 0 #00000026;
+      transition: all 0.5s;
+
+      .top-corner,
+      .bottom-corner {
+        display: block;
         position: absolute;
-        background: #f7f7f7;
-        box-shadow: 0 0 20px 0 #f7f7f7;
-        width: 30px;
+        background: #dadada;
+        width: 50px;
         height: 50px;
-        right: -30px;
-        top: 0;
+        top: -50px;
+        right: 0;
+        transition: all 0.5s;
+
+        &:before {
+          transition: all 0.5s;
+          content: "";
+          position: absolute;
+          background: white;
+          width: 100%;
+          height: 100%;
+          border-radius: 0 0 100% 0;
+        }
       }
 
-      &:after {
-        content: '';
-        position: absolute;
-        background: red;
+      .bottom-corner {
+        top: 70px;
+
+        &:before {
+          border-radius: 0 100% 0 0;
+        }
       }
+
     }
 
     app-toggler {
@@ -100,23 +131,94 @@ main {
 
   .body {
     padding: 30px;
+    overflow: auto;
     width: 100%;
-    background: #c8c8c826;
+    background: #ededed;
+    z-index: 10;
     border-radius: 30px 0 0 0;
-    box-shadow: inset 20px 20px 20px 0 #00000026;
+    box-shadow: inset 0 0 30px 0 #00000026;
 
     .chart-block {
-      width: 500px;
-      height: 300px;
+      max-width: 1000px;
+      max-height: 500px;
+    }
+
+    .horizontal-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 2rem;
+      margin-bottom: 3rem;
+
+      .horizontal-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 0 silver;
+        cursor: pointer;
+        transition: all 0.3s;
+
+        &.active {
+          background: #7fc0ec;
+        }
+      }
     }
   }
 }
 
 // ------------- NIGHT MODE ------------
 .night-mode {
-  header,
-  main {
-    background: black;
+  header {
+    background: #262626;
     color: white;
+
+    .menu {
+      .moved-background {
+        background: #d8d8d8;
+        box-shadow: 0 0 10px 0 #ececec;
+      }
+
+      button {
+        color: white;
+
+        &.active {
+          color: #262626;
+        }
+      }
+    }
+  }
+
+  main {
+    background: #262626;
+    color: white;
+
+    aside {
+      .active-background {
+        background: #363636;
+        box-shadow: inset 0 0 30px 0 #ffffff26;
+
+        .top-corner,
+        .bottom-corner {
+          background: #464646;
+
+          &:before {
+            background: #262626;
+          }
+        }
+      }
+    }
+
+    .body {
+      box-shadow: inset 0 0 30px 0 #ffffff26;
+      background: #363636;
+
+      .horizontal-cards .horizontal-card {
+        background: #262626;
+        box-shadow: 0 0 10px 0 #ffffff26;
+
+        &.active {
+          background: #3677a3;
+        }
+      }
+    }
   }
 }

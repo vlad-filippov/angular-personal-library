@@ -1,0 +1,41 @@
+.main-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  min-height: 400px;
+  flex-direction: column;
+
+  .coin-block {
+    perspective: 1000px;
+    width: 90%;
+    max-width: 500px;
+
+    img {
+      width: 100%;
+      animation: rotateCoin 5s linear infinite;
+    }
+  }
+
+  .shadow-block {
+    perspective: 1000px;
+    max-width: 300px;
+    width: 100%;
+
+    .coin-shadow {
+      margin-top: 30px;
+      background: #00000029;
+      max-width: 300px;
+      height: 30px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px 10px #00000029;
+      animation: rotateCoin 5s linear infinite;
+    }
+  }
+}
+
+@keyframes rotateCoin {
+  0% {
+    transform: rotateY(360deg);
+  }
+}

@@ -5,8 +5,10 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MainComponent } from './main/main.component';
 import { SharedModule } from './shared/shared.module';
-import { AboutComponent } from './about/about.component';
+import { AboutComponent } from './main/about/about.component';
 import { NgChartsModule } from 'ng2-charts';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { NgChartsModule } from 'ng2-charts';
     AboutComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
+    CommonModule,
     SharedModule,
     BrowserModule,
     AppRoutingModule,

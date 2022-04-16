@@ -1,18 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './main/main.component';
-import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   {
     path: '',
     component: MainComponent,
     data: { title: 'aweZZome' },
-  },
-  {
-    path: 'about',
-    component: AboutComponent,
-    data: { title: 'About' },
   },
   {
     path: 'elements',

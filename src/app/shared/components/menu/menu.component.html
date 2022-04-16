@@ -5,16 +5,9 @@
 
   <button routerLink="/"><i class='bx bx-left-arrow-alt'></i> Back</button>
 
-<!--  <button class="back-button" routerLink="/">-->
-<!--    <i class='bx bxs-left-arrow' ></i>-->
-<!--    <span>Back</span>-->
-<!--  </button>-->
-
   <button *ngFor="let button of menuItems"
           (click)="changeItem(button.id)"
           [class.current]="button.id === currentItem">
     {{button.name}}
   </button>
-
-  <button routerLink="/about">About</button>
 </div>

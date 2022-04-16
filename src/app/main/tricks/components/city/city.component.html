@@ -1,17 +1,33 @@
-<div class="sky">
-  <div class="sun">
-    <i class='bx bxs-wink-smile'></i>
+<div class="city-board">
+  <div class="sky">
+    <div class="sun">
+      <i class='bx bxs-wink-smile'></i>
 
-    <div class="sun-circles">
-      <span *ngFor="let number of aroundElements" [style]="'--i:' + number"></span>
+      <div class="sun-circles">
+        <span *ngFor="let number of aroundElements" [style]="'--i:' + number"></span>
+      </div>
+    </div>
+
+    <div class="bird1"></div>
+    <div class="plane"></div>
+  </div>
+
+  <div class="earth">
+    <div class="road"></div>
+
+    <div class="small-car">
+      <div class="top-part"></div>
+    </div>
+    <div class="big-car">
+      <div class="top-part"></div>
+    </div>
+
+    <div class="house1">
+      <div *ngFor="let floor of [1,2,3,4]" class="floor"></div>
     </div>
   </div>
-</div>
 
-<div class="earth">
-  earth
-</div>
-
-<div class="sea">
-  sea
+  <div class="sea">
+    <div class="ship"></div>
+  </div>
 </div>

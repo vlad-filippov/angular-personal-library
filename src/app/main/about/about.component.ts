@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-about',
@@ -6,6 +6,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
+  @Output() public close: EventEmitter<void> = new EventEmitter<void>();
+  public absctacts: any = [
+    {
+     class: 'main-figure',
+    },
+    {
+      class: 'circle',
+    },
+    {
+      class: 'slide-toggler',
+    },
+    {
+      class: 'square',
+    },
+    {
+      class: 'triangle',
+    },
+  ];
 
   constructor() { }
 

@@ -17,18 +17,33 @@
 
   <main>
     <aside>
-      <button *ngFor="let item of mochDataService.menuItems"
-              [class.active]="item.id === selectedSidebarItem"
-              (click)="selectedSidebarItem = item.id">
-        {{item.label}}
-      </button>
+      <div *ngFor="let item of mochDataService.menuItems"
+           class="sidebar-button"
+           [class.active]="item.id === selectedSidebarItem"
+           (click)="selectedSidebarItem = item.id">
+        <div class="label">{{item.label}}</div>
+        <div *ngIf="item.id === selectedSidebarItem" class="active-background" @slideActiveBackground>
+          <div class="top-corner"></div>
+          <div class="bottom-corner"></div>
+        </div>
+      </div>
 
       <app-toggler (click)="toggleNightMode = !toggleNightMode">Night Mode</app-toggler>
     </aside>
 
-    <div class="body" [ngSwitch]="selectedSidebarItem">
-      <div *ngSwitchCase="0" class="chart-block">
-        <div style="display: block;">
+    <div [ngSwitch]="selectedSidebarItem" class="body">
+      <div *ngSwitchCase="0">
+        <div class="horizontal-cards">
+          <div  *ngFor="let card of [1,2,3,4]; let i = index"
+                [class.active]="selectedChartBarDataId === i + 1"
+                class="horizontal-card"
+                (click)="changeBerChartData(i + 1)">
+            <h3 class="mb-3">Card {{ card }}</h3>
+            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, vitae!</p>
+          </div>
+        </div>
+
+        <div class="chart-block m-auto" style="display: block;">
           <canvas baseChart
                   [datasets]="barChartData"
                   [labels]="barChartLabels"
@@ -39,9 +54,9 @@
           </canvas>
         </div>
       </div>
-      <div *ngSwitchCase="1" class="chart-block">
+      <div *ngSwitchCase="1">
         2
-        <div style="display: block;">
+        <div class="chart-block" style="display: block;">
           <canvas baseChart
                   [data]="polarAreaChartData"
                   [labels]="polarAreaChartLabels"
@@ -51,8 +66,8 @@
         </div>
 
       </div>
-      <div *ngSwitchCase="2" class="chart-block">
-        <div style="display: block;">
+      <div *ngSwitchCase="2">
+        <div class="chart-block" style="display: block;">
           <canvas baseChart
                   [datasets]="radarChartData"
                   [options]="radarChartOptions"
@@ -61,8 +76,8 @@
           </canvas>
         </div>
       </div>
-      <div *ngSwitchCase="3" class="chart-block">
-        <div style="display: block;">
+      <div *ngSwitchCase="3">
+        <div class="chart-block" style="display: block;">
           <canvas baseChart width="400" height="400"
                   [datasets]="lineChartData"
                   [labels]="lineChartLabels"
@@ -73,8 +88,8 @@
           </canvas>
         </div>
       </div>
-      <div *ngSwitchCase="4" class="chart-block">
-        <div style="display: block;">
+      <div *ngSwitchCase="4">
+        <div class="chart-block" style="display: block;">
           <canvas baseChart
                   [datasets]="bubbleChartData"
                   [options]="bubbleChartOptions"
